@@ -4,7 +4,17 @@ import re
 """
 run this on the command line with the text to be decrypted
 """
-    
+def check(text):
+    dictionary = open("words.txt", "r")
+    wordCount = 0
+    for line in dictionary:
+        #print(re.search(line.strip(), text))
+        if (re.search(line.strip(), text)):
+            wordCount += 1
+    if(wordCount >= 6):
+        return True
+    else:
+        return False
 
 
 def decrypt():
@@ -22,6 +32,11 @@ def decrypt():
                             temp[1] = ord(ciphertext[el+1])-97
                             plain += chr(((key[0]*temp[0] + key[1]*temp[1])%26)+97)
                             plain += chr(((key[2]*temp[0] + key[3]*temp[1])%26)+97)
+                    if(check(plain)):
+                        print(plain, " ", key, "\n")
+                    plain = ""
+                    
+
 
 
     
