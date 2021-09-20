@@ -26,7 +26,7 @@ def decrypt():
             for k in range(0, 25):
                 for l in range(0, 25):
                     key = [i, j, k, l]
-                    for el in range(0, ciphertext.len):
+                    for el in range(0, len(ciphertext)):
                         if(el%2 == 0):
                             temp[0] = ord(ciphertext[el])-97
                             temp[1] = ord(ciphertext[el+1])-97
@@ -35,7 +35,7 @@ def decrypt():
                     if(check(plain)):
                         print(plain, " ", key, "\n")
                     plain = ""
-                    
+
 
 
 
